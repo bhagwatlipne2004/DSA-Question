@@ -65,8 +65,8 @@ public class Demo6 {
 
     static List<Integer> firstLastOccurence(int [] arr, int target, int n) {
 
-        int lb = lowerBound(arr, target, arr.length);
-        int ub = upperBound(arr, target, arr.length);
+        int lb = lowerBound(arr, target, n);
+        int ub = upperBound(arr, target, n);
 
         if (lb == n || arr[lb] != target) {
             return new ArrayList<>(List.of(-1,-1));

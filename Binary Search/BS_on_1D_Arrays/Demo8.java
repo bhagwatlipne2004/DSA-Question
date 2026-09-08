@@ -1,17 +1,24 @@
 // Search Element in a Rotated Sorted Array - I
 
-public class Demo7 {
-
-    static int searchRotatedArray(int [] nums, int target, int n) {
+public class Demo8 {
+    
+    static boolean search(int[] nums, int target) {
+        int n = nums.length;
         int low = 0, high = n - 1;
 
         while (low <= high) {
             int mid = (low + high) / 2;
 
             if (nums[mid] == target) {
-                return mid;
+                return true;
             }
 
+            if (nums[low] == nums[mid] && nums[mid] == nums[high]) {
+                low++;
+                high--;
+                continue;
+            }
+            
             if (nums[low] <= nums[mid]) {
                 if (nums[low] <= target && nums[mid] >= target) {
                     high = mid - 1;   
@@ -30,13 +37,12 @@ public class Demo7 {
             }
         }
 
-        return -1;
+        return false; 
     }
 
     public static void main(String[] args) {
-        int [] nums = {5, 6, 7, 8, 9, 1, 2, 3, 4};
+        int [] nums = {2, 2, 2, 3, 3, 3, 1, 1, 2, 2, 2};
 
-        System.out.println(searchRotatedArray(nums, 10, nums.length));
+        System.out.println(search(nums, 4));
     }
-    
 }

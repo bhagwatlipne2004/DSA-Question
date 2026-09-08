@@ -1,5 +1,3 @@
-package BS_on_1D_Arrays;
-
 // Binary Search 
 
 public class Demo1 {
